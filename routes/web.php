@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']) -> prefix('admin')->group(function () {
+    Route::get('/dashboard', [Controller::class, 'dashboard']) -> name('dashboard');
+    Route::post('/send-email', [Controller::class, 'send_email']) -> name('send-email');
 });

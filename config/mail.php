@@ -42,6 +42,10 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
+            'from' => [
+                'address' => env('MAIL_FROM_ADDRESS', 'fmaccmail.fm@gmail.com'),
+                'name' => env('MAIL_FROM_NAME', 'Front Music'),
+            ],
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],

@@ -1,7 +1,22 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+
+            <div class="d-flex justify-center gap-4" style="display: flex; align-items: center">
+
+            <div >
+            <x-authentication-card-logo style="border: 2px solid" />
+            </div>
+
+            <div>
+            <h1 style="font-size: 20px" class="text-xl font-semibold dark:text-gray-400 ">
+                <a href="https://laravel.com/docs">Mailling App</a>
+            </h1>
+            <small class="dark:text-gray-400">Authenticate</small>
+            </div>
+
+            </div>
+
         </x-slot>
 
         <x-validation-errors class="mb-4" />
